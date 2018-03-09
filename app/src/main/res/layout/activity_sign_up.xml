@@ -27,25 +27,49 @@
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 
+
     <RelativeLayout
         android:id="@+id/user_fields"
         android:layout_width="match_parent"
-        android:layout_height="204dp"
+        android:layout_height="300dp"
         android:layout_below="@id/tv_home_assistant"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="32dp"
         android:background="@android:color/white"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/et_username"
+            android:layout_alignLeft="@+id/et_username"
+            android:layout_alignStart="@+id/et_username"
+            android:layout_marginBottom="14dp"
+            android:letterSpacing="0.08"
+            android:textColor="#b3b3b3"
+            android:textSize="12sp"
+            tools:text="Enter Full Name" />
+
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="100dp"
+            android:background="#e7e7e7" />
 
         <TextView
             android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/et_SignUpEmail"
-            android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/et_SignUpEmail"
-            android:layout_marginTop="32dp"
+            android:layout_below="@+id/view_1"
+            android:layout_marginTop="25dp"
             android:letterSpacing="0.08"
             android:text="Email"
             android:textColor="#b3b3b3"
@@ -55,6 +79,7 @@
             android:id="@+id/et_SignUpEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/view_1"
             android:layout_marginBottom="28dp"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
@@ -71,7 +96,9 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_centerInParent="true"
+            android:layout_below="@id/et_SignUpEmail"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:background="#e7e7e7" />
 
         <TextView
@@ -95,7 +122,7 @@
             android:layout_below="@id/tv_password"
             android:layout_marginBottom="37dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginRight="82dp"
             android:layout_marginTop="6dp"
             android:background="@null"
             android:hint="@string/enter_password"
@@ -105,33 +132,60 @@
             android:textSize="16sp"
             tools:text="Enter your email" />
 
+        <ImageView
+            android:id="@+id/iv_view_password"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@+id/et_SignUpPassword"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:src="@drawable/ic_eye" />
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/view_1"
+            android:layout_alignLeft="@+id/view_1"
+            android:layout_alignStart="@+id/view_1"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="32dp"
+            android:background="@null"
+            android:hint="@string/username"
+            android:inputType="textEmailAddress"
+            android:letterSpacing="0.06"
+            android:textColor="#b3b3b3"
+            android:textSize="16sp" />
+
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btn_log_in"
+        android:id="@+id/btn_sign_up"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/user_fields"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/button_bg_gradient"
-        android:text="Log In"
+        android:background="@drawable/sign_up_bg"
+        android:text="Sign Up"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/tv_sign_up"
+        android:id="@+id/tv_log_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:letterSpacing="0.06"
+        android:text="Have an account? Log In"
         android:textColor="#b3b3b3"
-        android:textSize="16sp"
-        android:text="No account? Sign Up" />
+        android:textSize="16sp" />
 
 
 </RelativeLayout>
