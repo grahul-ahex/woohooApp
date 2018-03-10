@@ -5,7 +5,6 @@ import android.app.Application;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.ahextech.woohoo.Utils.BASE_URL;
 import static com.ahextech.woohooapp.Utils.BASE_URL;
 
 /**
@@ -37,5 +36,4 @@ public class MyApplication extends Application {
 
         return retrofit;
     }
-
 }

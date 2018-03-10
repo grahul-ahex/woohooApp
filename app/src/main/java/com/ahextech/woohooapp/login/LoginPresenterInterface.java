@@ -7,6 +7,6 @@ package com.ahextech.woohooapp.login;
 public interface LoginPresenterInterface {
     void onLoginButtonClicked(String email, String password);
 
-    void validateLoginFields(String email, String password);
+    boolean validateLoginFields(String email, String password);
 
 }

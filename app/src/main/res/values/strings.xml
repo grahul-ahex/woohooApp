@@ -3,4 +3,11 @@
     <string name="enter_email">Enter your email</string>
     <string name="enter_password">Enter Password</string>
     <string name="username">Enter your full name</string>
+    <string name="alert_message">Please enter your email and password</string>
+
+    <string name="alert_box_title">Wrong Combination!</string>
+    <string name="error_message">The email address and password \ncombination you entered is wrong.</string>
+    <string name="try_again">Try Again!</string>
+
+    <string name="internetConnection">No Internet Connection</string>
 </resources>

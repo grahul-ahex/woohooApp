@@ -16,16 +16,33 @@
         android:layout_marginTop="90dp"
         android:background="@drawable/icon" />
 
-    <TextView
+    <com.ahextech.woohooapp.CustomTextView
         android:id="@+id/tv_home_assistant"
         android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:letterSpacing="0.06"
         android:text="Home AI Assistant"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
+
+    <com.ahextech.woohooapp.CustomTextView
+        android:id="@+id/tv_email_unavailable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_home_assistant"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:letterSpacing="0.02"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="abc@woohoo.com is already taken. Try Another"
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="gone" />
 
 
     <RelativeLayout
@@ -35,17 +52,17 @@
         android:layout_below="@id/tv_home_assistant"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="47dp"
         android:background="@android:color/white"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView"
+        <com.ahextech.woohooapp.CustomTextView
+            android:id="@+id/tvUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/et_username"
-            android:layout_alignLeft="@+id/et_username"
-            android:layout_alignStart="@+id/et_username"
+            android:layout_above="@+id/et_signUp_username"
+            android:layout_alignLeft="@+id/et_signUp_username"
+            android:layout_alignStart="@+id/et_signUp_username"
             android:layout_marginBottom="14dp"
             android:letterSpacing="0.08"
             android:textColor="#b3b3b3"
@@ -62,12 +79,12 @@
             android:layout_marginTop="100dp"
             android:background="#e7e7e7" />
 
-        <TextView
-            android:id="@+id/tv_email"
+        <com.ahextech.woohooapp.CustomTextView
+            android:id="@+id/tv_signUP_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/et_SignUpEmail"
-            android:layout_alignStart="@+id/et_SignUpEmail"
+            android:layout_alignLeft="@+id/et_sign_UpEmail"
+            android:layout_alignStart="@+id/et_sign_UpEmail"
             android:layout_below="@+id/view_1"
             android:layout_marginTop="25dp"
             android:letterSpacing="0.08"
@@ -75,8 +92,8 @@
             android:textColor="#b3b3b3"
             android:textSize="12sp" />
 
-        <EditText
-            android:id="@+id/et_SignUpEmail"
+        <com.ahextech.woohooapp.CustomEditText
+            android:id="@+id/et_sign_UpEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/view_1"
@@ -96,18 +113,18 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/et_SignUpEmail"
+            android:layout_below="@id/et_sign_UpEmail"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:background="#e7e7e7" />
 
-        <TextView
-            android:id="@+id/tv_password"
+        <com.ahextech.woohooapp.CustomTextView
+            android:id="@+id/tv_SignUpPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/et_SignUpPassword"
-            android:layout_alignStart="@+id/et_SignUpPassword"
-            android:layout_below="@+id/et_SignUpEmail"
+            android:layout_alignLeft="@+id/et_LoginPassword"
+            android:layout_alignStart="@+id/et_LoginPassword"
+            android:layout_below="@+id/et_sign_UpEmail"
             android:layout_marginTop="20dp"
             android:letterSpacing="0.08"
             android:text="Password"
@@ -115,15 +132,15 @@
             android:textSize="12sp" />
 
 
-        <EditText
+        <com.ahextech.woohooapp.CustomEditText
             android:id="@+id/et_SignUpPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_password"
+            android:layout_below="@id/tv_SignUpPassword"
             android:layout_marginBottom="37dp"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="82dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:background="@null"
             android:hint="@string/enter_password"
             android:inputType="textPassword"
@@ -134,7 +151,7 @@
 
         <ImageView
             android:id="@+id/iv_view_password"
-            android:layout_width="25dp"
+            android:layout_width="35dp"
             android:layout_height="20dp"
             android:layout_alignBottom="@+id/et_SignUpPassword"
             android:layout_alignParentEnd="true"
@@ -143,8 +160,8 @@
             android:layout_marginRight="32dp"
             android:src="@drawable/ic_eye" />
 
-        <EditText
-            android:id="@+id/et_username"
+        <com.ahextech.woohooapp.CustomEditText
+            android:id="@+id/et_signUp_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/view_1"
@@ -175,7 +192,7 @@
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
-    <TextView
+    <com.ahextech.woohooapp.CustomTextView
         android:id="@+id/tv_log_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

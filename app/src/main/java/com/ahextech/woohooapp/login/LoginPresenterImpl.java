@@ -23,15 +23,16 @@ public class LoginPresenterImpl implements LoginPresenterInterface, LoginInterac
     }
 
     @Override
-    public void validateLoginFields(String email, String password) {
-        interactor.validateFields(email, password, this);
+    public boolean validateLoginFields(String email, String password) {
+        boolean isValid = interactor.validateFields(email, password, this);
+        return isValid;
     }
 
     @Override
     public void onAuthSuccess(LoginResponseModel model) {
         view.hideProgressDialog();
         String status = model.getStatus();
-        view.onSuccessfulLogin(status);
+        view.onSuccessfulLogin("Successful");
 
     }
 
@@ -41,14 +42,19 @@ public class LoginPresenterImpl implements LoginPresenterInterface, LoginInterac
         view.onLoginFailure(status);
     }
 
-
     @Override
     public void onValidationSuccess() {
-        view.showLoginButton();
+        view.hideAlertMessage();
     }
 
     @Override
     public void onValidationFailure() {
-        view.hideLoginButton();
+        view.showAlertMessage();
     }
+
+    @Override
+    public void onPendingValidation(String message) {
+        view.showErrorMessage(message);
+    }
+
 }

@@ -11,7 +11,7 @@ public interface LoginInteractor {
 
     void authenticateUser(onAuthCompletedListener listener, String email, String password);
 
-    void validateFields(String email, String password, onValidateFieldListener validateFieldListener);
+    boolean validateFields(String email, String password, onValidateFieldListener validateFieldListener);
 
     interface onAuthCompletedListener {
         void onAuthSuccess(LoginResponseModel model);
@@ -21,8 +21,11 @@ public interface LoginInteractor {
     }
 
     interface onValidateFieldListener {
+
         void onValidationSuccess();
 
         void onValidationFailure();
+        void onPendingValidation(String message);
+
     }
 }

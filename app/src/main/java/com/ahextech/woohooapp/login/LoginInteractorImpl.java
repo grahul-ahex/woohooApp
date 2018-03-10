@@ -4,6 +4,7 @@ package com.ahextech.woohooapp.login;
 import com.ahextech.woohooapp.APIService;
 import com.ahextech.woohooapp.MyApplication;
 import com.ahextech.woohooapp.POJO.LoginResponseModel;
+import com.ahextech.woohooapp.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,13 +27,23 @@ public class LoginInteractorImpl implements LoginInteractor, Callback<LoginRespo
     }
 
     @Override
-    public void validateFields(String email, String password,
-                               onValidateFieldListener validateFieldListener) {
-        if (email.equals("") || password.equals("")) {
+    public boolean validateFields(String email, String password,
+                                  onValidateFieldListener validateFieldListener) {
+        boolean isValid;
+        if (email.equals("") && password.equals("")) {
             validateFieldListener.onValidationFailure();
+            isValid = false;
+        } else if (email.equals("")) {
+            validateFieldListener.onPendingValidation("Please enter your email");
+            isValid = false;
+        } else if (password.equals("")) {
+            validateFieldListener.onPendingValidation("Please enter your password");
+            isValid = false;
         } else {
             validateFieldListener.onValidationSuccess();
+            isValid = true;
         }
+        return isValid;
     }
 
     @Override
@@ -67,6 +78,6 @@ public class LoginInteractorImpl implements LoginInteractor, Callback<LoginRespo
 
     @Override
     public void onFailure(Call<LoginResponseModel> call, Throwable t) {
-        listener.onAuthFailure("Check your internet connection");
+        listener.onAuthFailure("No internet connection");
     }
 }

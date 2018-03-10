@@ -7,10 +7,6 @@ package com.ahextech.woohooapp.login;
 public interface LoginView {
 
 
-    void showLoginButton();
-
-    void hideLoginButton();
-
     void showProgressDialog();
 
     void hideProgressDialog();
@@ -19,4 +15,10 @@ public interface LoginView {
 
 
     void onLoginFailure(String status);
+
+    void hideAlertMessage();
+
+    void showAlertMessage();
+
+    void showErrorMessage(String message);
 }
