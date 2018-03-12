@@ -1,7 +1,9 @@
 package com.ahextech.woohooapp.signup;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import com.ahextech.woohooapp.R;
 import com.ahextech.woohooapp.ShowProgressDialog;
 import com.ahextech.woohooapp.TextWatcherClass;
+import com.ahextech.woohooapp.login.LoginActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +55,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView, Vie
         btnSignUp.setOnClickListener(this);
         tvLogIn.setOnClickListener(this);
         hideHintViews();
+
         etUsername.addTextChangedListener(new TextWatcherClass(tvUsername));
         etSignUpEmail.addTextChangedListener(new TextWatcherClass(tvSignUpEmail));
         etSignUpPassword.addTextChangedListener(new TextWatcherClass(tvSignUpPassowrd));
@@ -77,36 +81,54 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView, Vie
 
     @Override
     public void onSuccessfulRegistration(String status) {
-
+        Snackbar.make(tvUsername, status, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
     public void onRegistrationFailure(String status) {
-
+        tvEmailUnavailable.setText(status);
+        tvEmailUnavailable.setVisibility(View.VISIBLE);
+        Snackbar.make(tvUsername, status, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
     public void hideAlertMessage() {
+        tvEmailUnavailable.setVisibility(View.INVISIBLE);
 
     }
 
     @Override
     public void showAlertMessage() {
-
+        tvEmailUnavailable.setText("Please enter your credentials");
+        tvEmailUnavailable.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showErrorMessage(String message) {
-
+        tvEmailUnavailable.setText(message);
+        tvEmailUnavailable.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_sign_up:
+                validateFields();
+                if (isFieldsValid) {
+                    signUpPresenter.onSignUpButtonClicked(email, password, username);
+                }
                 break;
             case R.id.tv_log_in:
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
                 break;
         }
+    }
+
+    private void validateFields() {
+        email = etSignUpEmail.getText().toString();
+        password = etSignUpPassword.getText().toString();
+        username = etUsername.getText().toString();
+        isFieldsValid = signUpPresenter.validateLoginFields(email, password, username);
     }
 }

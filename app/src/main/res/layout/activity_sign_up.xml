@@ -40,6 +40,7 @@
         android:letterSpacing="0.02"
         android:gravity="center"
         android:singleLine="true"
+        android:textSize="14sp"
         android:text="abc@woohoo.com is already taken. Try Another"
         android:textColor="@android:color/holo_red_light"
         android:visibility="gone" />
@@ -53,6 +54,8 @@
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginTop="47dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:background="@android:color/white"
         android:orientation="vertical">
 
@@ -67,7 +70,7 @@
             android:letterSpacing="0.08"
             android:textColor="#b3b3b3"
             android:textSize="12sp"
-            tools:text="Enter Full Name" />
+            android:text="Enter Full Name" />
 
         <View
             android:id="@+id/view_1"
@@ -105,9 +108,9 @@
             android:hint="@string/enter_email"
             android:inputType="textEmailAddress"
             android:letterSpacing="0.06"
-            android:textColor="#b3b3b3"
-            android:textSize="16sp"
-            tools:text="Enter your email" />
+            android:textColorHint="#b3b3b3"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
 
         <View
             android:id="@+id/view"
@@ -122,6 +125,7 @@
             android:id="@+id/tv_SignUpPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
             android:layout_alignLeft="@+id/et_LoginPassword"
             android:layout_alignStart="@+id/et_LoginPassword"
             android:layout_below="@+id/et_sign_UpEmail"
@@ -145,13 +149,13 @@
             android:hint="@string/enter_password"
             android:inputType="textPassword"
             android:letterSpacing="0.06"
-            android:textColor="#b3b3b3"
-            android:textSize="16sp"
-            tools:text="Enter your email" />
+            android:textColorHint="#b3b3b3"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/iv_view_password"
-            android:layout_width="35dp"
+            android:layout_width="45dp"
             android:layout_height="20dp"
             android:layout_alignBottom="@+id/et_SignUpPassword"
             android:layout_alignParentEnd="true"
@@ -173,7 +177,8 @@
             android:hint="@string/username"
             android:inputType="textEmailAddress"
             android:letterSpacing="0.06"
-            android:textColor="#b3b3b3"
+            android:textColorHint="#b3b3b3"
+            android:textColor="@android:color/black"
             android:textSize="16sp" />
 
     </RelativeLayout>

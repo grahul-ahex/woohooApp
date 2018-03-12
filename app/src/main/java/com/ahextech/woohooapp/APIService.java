@@ -23,8 +23,12 @@ public interface APIService {
     Call<LoginResponseModel> authenticateUser(@Field("email") String email,
                                               @Field("password") String password);
 
+    @FormUrlEncoded
     @POST("/apiv2/user/")
-    Call<RegistrationReponseModel> registerUser(@Body RegistrationModel regModel);
+    Call<RegistrationReponseModel> registerUser(@Field("email") String email,
+                                                @Field("password") String password,
+                                                @Field("name") String username);
+
 
 
     @FormUrlEncoded

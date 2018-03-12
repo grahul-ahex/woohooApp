@@ -137,6 +137,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
                 break;
             case R.id.tv_sign_up:
                 startActivity(new Intent(this, SignUpActivity.class));
+                finish();
                 break;
         }
     }
