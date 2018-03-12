@@ -44,12 +44,16 @@ public class SignUpInteractorImpl implements SignUpInteractor, Callback<Registra
             validateFieldListener.onPendingValidation("Please enter your username");
             isValid = false;
         } else {
-            if (email.contains("@woohoo.com")) {
-                validateFieldListener.onValidationSuccess();
-                isValid = true;
-            } else {
+            if (!email.contains("@woohoo.com")) {
                 validateFieldListener.onPendingValidation("Incorrect email");
                 isValid = false;
+            } else if (password.length() < 8) {
+                validateFieldListener.onPendingValidation("Password should have min 8 characters");
+                isValid = false;
+            } else {
+                validateFieldListener.onValidationSuccess();
+                isValid = true;
+
             }
         }
         return isValid;
@@ -64,7 +68,7 @@ public class SignUpInteractorImpl implements SignUpInteractor, Callback<Registra
                     listener.onSignUpSuccess();
                     break;
                 case 400://Bad Request
-                    listener.onSignUpFailure(email +" "+ "is already taken.Try another");
+                    listener.onSignUpFailure(email + " " + "is already taken.Try another");
                     break;
                 case 422://validation error
                     listener.onSignUpFailure("Validation Error");

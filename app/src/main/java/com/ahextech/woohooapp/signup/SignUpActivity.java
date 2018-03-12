@@ -5,9 +5,13 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ahextech.woohooapp.R;
@@ -18,7 +22,7 @@ import com.ahextech.woohooapp.login.LoginActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SignUpActivity extends AppCompatActivity implements SignUpView, View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements SignUpView, View.OnClickListener, View.OnTouchListener {
     @BindView(R.id.tv_email_unavailable)
     TextView tvEmailUnavailable;
     @BindView(R.id.tvUserName)
@@ -37,6 +41,8 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView, Vie
     Button btnSignUp;
     @BindView(R.id.tv_log_in)
     TextView tvLogIn;
+    @BindView(R.id.iv_view_password)
+    ImageView ivShowPassword;
 
     private SignUpPresenter signUpPresenter;
     private String username, email, password;
@@ -54,6 +60,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView, Vie
         btnSignUp.setTypeface(typeface);
         btnSignUp.setOnClickListener(this);
         tvLogIn.setOnClickListener(this);
+        ivShowPassword.setOnTouchListener(this);
         hideHintViews();
 
         etUsername.addTextChangedListener(new TextWatcherClass(tvUsername));
@@ -130,5 +137,20 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView, Vie
         password = etSignUpPassword.getText().toString();
         username = etUsername.getText().toString();
         isFieldsValid = signUpPresenter.validateLoginFields(email, password, username);
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                etSignUpPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                etSignUpPassword.moveCursorToVisibleOffset();
+                etSignUpPassword.setSelection(etSignUpPassword.getText().toString().length());
+                break;
+            case MotionEvent.ACTION_UP:
+                etSignUpPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                break;
+        }
+        return true;
     }
 }
