@@ -63,9 +63,9 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView, Vie
         ivShowPassword.setOnTouchListener(this);
         hideHintViews();
 
-        etUsername.addTextChangedListener(new TextWatcherClass(tvUsername));
-        etSignUpEmail.addTextChangedListener(new TextWatcherClass(tvSignUpEmail));
-        etSignUpPassword.addTextChangedListener(new TextWatcherClass(tvSignUpPassowrd));
+        etUsername.addTextChangedListener(new TextWatcherClass(tvUsername, tvEmailUnavailable));
+        etSignUpEmail.addTextChangedListener(new TextWatcherClass(tvSignUpEmail, tvEmailUnavailable));
+        etSignUpPassword.addTextChangedListener(new TextWatcherClass(tvSignUpPassowrd, tvEmailUnavailable));
 
     }
 

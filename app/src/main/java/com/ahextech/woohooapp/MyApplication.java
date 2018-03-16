@@ -15,6 +15,7 @@ public class MyApplication extends Application {
     public static final String TAG = MyApplication.class.getSimpleName();
     private static MyApplication mInstance;
     private Retrofit retrofit;
+    private APIService apiService;
 
     public static synchronized MyApplication getInstance() {
         return mInstance;
@@ -35,5 +36,12 @@ public class MyApplication extends Application {
         }
 
         return retrofit;
+    }
+
+    public APIService getAPIService() {
+        if (apiService == null) {
+            apiService = getClient().create(APIService.class);
+        }
+        return apiService;
     }
 }

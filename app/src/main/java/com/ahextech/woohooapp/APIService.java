@@ -2,12 +2,10 @@ package com.ahextech.woohooapp;
 
 
 import com.ahextech.woohooapp.POJO.LoginResponseModel;
-import com.ahextech.woohooapp.POJO.RegistrationModel;
 import com.ahextech.woohooapp.POJO.RegistrationReponseModel;
 import com.ahextech.woohooapp.POJO.UserNameAvailabilityResponse;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -28,7 +26,6 @@ public interface APIService {
     Call<RegistrationReponseModel> registerUser(@Field("email") String email,
                                                 @Field("password") String password,
                                                 @Field("name") String username);
-
 
 
     @FormUrlEncoded

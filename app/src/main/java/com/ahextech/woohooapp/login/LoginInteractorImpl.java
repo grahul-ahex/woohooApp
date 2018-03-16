@@ -1,10 +1,8 @@
 package com.ahextech.woohooapp.login;
 
 
-import com.ahextech.woohooapp.APIService;
 import com.ahextech.woohooapp.MyApplication;
 import com.ahextech.woohooapp.POJO.LoginResponseModel;
-import com.ahextech.woohooapp.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,9 +18,8 @@ public class LoginInteractorImpl implements LoginInteractor, Callback<LoginRespo
     @Override
     public void authenticateUser(onAuthCompletedListener listener, String email, String password) {
         this.listener = listener;
-        APIService apiService = MyApplication.getInstance()
-                .getClient().create(APIService.class);
-        Call<LoginResponseModel> call = apiService.authenticateUser(email, password);
+        Call<LoginResponseModel> call = MyApplication.
+                getInstance().getAPIService().authenticateUser(email, password);
         call.enqueue(this);
     }
 

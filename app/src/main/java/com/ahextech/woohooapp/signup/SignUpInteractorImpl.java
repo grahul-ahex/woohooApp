@@ -1,6 +1,5 @@
 package com.ahextech.woohooapp.signup;
 
-import com.ahextech.woohooapp.APIService;
 import com.ahextech.woohooapp.MyApplication;
 import com.ahextech.woohooapp.POJO.RegistrationReponseModel;
 
@@ -21,8 +20,8 @@ public class SignUpInteractorImpl implements SignUpInteractor, Callback<Registra
         this.listener = listener;
         this.email = email;
         Call<RegistrationReponseModel> call =
-                MyApplication.getInstance()
-                        .getClient().create(APIService.class).registerUser(email, password, username);
+                MyApplication.getInstance().getAPIService()
+                        .registerUser(email, password, username);
         call.enqueue(this);
     }
 

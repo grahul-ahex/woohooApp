@@ -8,60 +8,107 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class LoginResponseModel {
-
-    @SerializedName("status")
+    @SerializedName("success")
     @Expose
-    private String status;
-    @SerializedName("email")
+    private String success;
+    @SerializedName("message")
     @Expose
-    private String email;
-    @SerializedName("token")
+    private String message;
+    @SerializedName("data")
     @Expose
-    private String token;
-    @SerializedName("twilioToken")
-    @Expose
-    private String twilioToken;
-    @SerializedName("twilioRoomName")
-    @Expose
-    private String twilioRoomName;
+    private Data data;
 
-    public String getStatus() {
-        return status;
+    public String getSuccess() {
+        return success;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setSuccess(String success) {
+        this.success = success;
     }
 
-    public String getEmail() {
-        return email;
+    public String getMessage() {
+        return message;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public String getToken() {
-        return token;
+    public Data getData() {
+        return data;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setData(Data data) {
+        this.data = data;
     }
 
-    public String getTwilioToken() {
-        return twilioToken;
-    }
+    public class Data {
+        @SerializedName("status")
+        @Expose
+        private String status;
+        @SerializedName("user_id")
+        @Expose
+        private String userID;
+        @SerializedName("email")
+        @Expose
+        private String email;
+        @SerializedName("session_token")
+        @Expose
+        private String token;
+        @SerializedName("refresh_token")
+        @Expose
+        private String refreshToken;
 
-    public void setTwilioToken(String twilioToken) {
-        this.twilioToken = twilioToken;
-    }
+        @SerializedName("expiry_time")
+        @Expose
+        private String expiryTime;
 
-    public String getTwilioRoomName() {
-        return twilioRoomName;
-    }
+        public String getStatus() {
+            return status;
+        }
 
-    public void setTwilioRoomName(String twilioRoomName) {
-        this.twilioRoomName = twilioRoomName;
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getUserID() {
+            return userID;
+        }
+
+        public void setUserID(String userID) {
+            this.userID = userID;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
+        }
+
+        public String getRefreshToken() {
+            return refreshToken;
+        }
+
+        public void setRefreshToken(String refreshToken) {
+            this.refreshToken = refreshToken;
+        }
+
+        public String getExpiryTime() {
+            return expiryTime;
+        }
+
+        public void setExpiryTime(String expiryTime) {
+            this.expiryTime = expiryTime;
+        }
     }
 }

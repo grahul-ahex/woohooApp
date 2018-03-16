@@ -31,8 +31,8 @@ public class LoginPresenterImpl implements LoginPresenterInterface, LoginInterac
     @Override
     public void onAuthSuccess(LoginResponseModel model) {
         view.hideProgressDialog();
-        String status = model.getStatus();
-        view.onSuccessfulLogin("Successful");
+        String status = model.getData().getStatus();
+        view.onSuccessfulLogin(status);
 
     }
 

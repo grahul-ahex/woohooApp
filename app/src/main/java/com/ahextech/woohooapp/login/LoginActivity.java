@@ -53,8 +53,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
         btnLogin.setOnClickListener(this);
         tvSignUp.setOnClickListener(this);
         hideHintViews();
-        etEmail.addTextChangedListener(new TextWatcherClass(tvEmail));
-        etPassword.addTextChangedListener(new TextWatcherClass(tvPassword));
+        etEmail.addTextChangedListener(new TextWatcherClass(tvEmail, tvAlert));
+        etPassword.addTextChangedListener(new TextWatcherClass(tvPassword, tvAlert));
     }
 
     private void hideHintViews() {
